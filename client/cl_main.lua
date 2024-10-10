@@ -5,7 +5,7 @@ for _, grave in ipairs(Config.GraveLocations) do
         coords = grave.coords,
         size = grave.size,
         rotation = grave.rotation,
-        debug = true,
+        debug = false,
         options = {
             {
                 icon = 'fa-solid fa-skull',
