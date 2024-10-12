@@ -2,7 +2,7 @@ RegisterNetEvent("giveitems", function ()
     local player = source
     local itemsGiven = {} 
 
-    for _, item in ipairs(Config.Items) do
+    for _, item in ipairs(YK.Items) do
         local roll = math.random(1, 100)
         if roll <= item.chance then
             local amount = math.random(item.min, item.max)
