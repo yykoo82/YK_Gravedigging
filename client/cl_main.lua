@@ -1,6 +1,6 @@
 local interactedGraves = {}
 
-for _, grave in ipairs(Config.GraveLocations) do
+for _, grave in ipairs(YK.GraveLocations) do
     exports.ox_target:addBoxZone({
         coords = grave.coords,
         size = grave.size,
@@ -10,7 +10,7 @@ for _, grave in ipairs(Config.GraveLocations) do
             {
                 icon = 'fa-solid fa-skull',
                 label = 'Dig',
-                items = Config.RequiredItem,
+                items = YK.RequiredItem,
                 onSelect = function(data)
                 
                     if interactedGraves[grave.coords] then
@@ -81,7 +81,7 @@ for _, grave in ipairs(Config.GraveLocations) do
                             })
 
                             local npcChance = math.random(1, 100)
-                            if npcChance <= Config.NPCSpawnChance then
+                            if npcChance <= YK.NPCSpawnChance then
                                 spawnAngryNPC()
                             end
 
