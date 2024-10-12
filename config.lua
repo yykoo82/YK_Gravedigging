@@ -1,15 +1,15 @@
-Config = {}
+YK = {}
 
 -- NPC Options
-Config.NPCSpawnChance = 20 
-Config.PedCoords = vector3(-1685.1382, -292.1583, 51.8916)
-Config.Weapon = "WEAPON_BAT" 
+YK.NPCSpawnChance = 20 
+YK.PedCoords = vector3(-1685.1382, -292.1583, 51.8916)
+YK.Weapon = "WEAPON_BAT" 
 
 -- Item Options
-Config.RequiredItem = "phone"
+YK.RequiredItem = "phone"
 
 -- Items you get from graves
-Config.Items = {
+YK.Items = {
     { name = 'garbage', min = 1, max = 3, chance = 40 }, 
     { name = 'radio', min = 1, max = 3, chance = 30 }, 
     { name = 'phone', min = 1, max = 1, chance = 30 },
@@ -17,7 +17,7 @@ Config.Items = {
 }
 
 -- Grave locations
-Config.GraveLocations = {
+YK.GraveLocations = {
     { coords = vector3(-1704.1310, -234.0973, 53.6860), size = vec3(2, 2, 2), rotation = 45 },
     { coords = vector3(-1714.9175, -233.5637, 53.6757), size = vec3(2, 2, 2), rotation = 45 },
     { coords = vector3(-1733.9858, -232.6205, 53.2966), size = vec3(2, 2, 2), rotation = 45 },
