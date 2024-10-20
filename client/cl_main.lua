@@ -1,5 +1,24 @@
 local interactedGraves = {}
 
+local function spawnAngryNPC()
+    local npcModel = GetHashKey("cs_priest") 
+    RequestModel(npcModel)
+
+    while not HasModelLoaded(npcModel) do
+        Wait(500)
+    end
+
+    local npc = CreatePed(4, npcModel, YK.PedCoords.x, YK.PedCoords.y, YK.PedCoords.z + 1.0, 0.0, true, true)
+
+    SetEntityAsMissionEntity(npc, true, true)
+    TaskCombatPed(npc, PlayerPedId(), 0, 16) 
+
+    GiveWeaponToPed(npc, GetHashKey(YK.Weapon), 9999, true, true)
+
+    SetEntityHealth(npc, 100) 
+    SetPedCombatAttributes(npc, 46, true) 
+end
+
 for _, grave in ipairs(YK.GraveLocations) do
     exports.ox_target:addBoxZone({
         coords = grave.coords,
@@ -12,12 +31,12 @@ for _, grave in ipairs(YK.GraveLocations) do
                 label = 'Dig',
                 items = YK.RequiredItem,
                 onSelect = function(data)
-                
+
                     if interactedGraves[grave.coords] then
                         lib.notify({
                             id = 'grave_digging',
                             title = 'Gravedigging',
-                            description = 'You have already digged this grave!',
+                            description = 'You have already dug this grave!',
                             showDuration = false,
                             position = 'top',
                             style = {
@@ -66,7 +85,7 @@ for _, grave in ipairs(YK.GraveLocations) do
                             lib.notify({
                                 id = 'grave_digging',
                                 title = 'Gravedigging',
-                                description = 'You digged a grave',
+                                description = 'You dug a grave',
                                 showDuration = false,
                                 position = 'top',
                                 style = {
@@ -88,8 +107,6 @@ for _, grave in ipairs(YK.GraveLocations) do
                             TriggerServerEvent("giveitems")
                             
                             -- Put here your dispatch
-
-
                             
                         end
                     else
